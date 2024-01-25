@@ -40,12 +40,12 @@ userSchema.pre("save", async function (next) {
 });
 
 // Method to compare hashed password
-userSchema.methods.isCorrectPassword = async function (password) {
+userSchema.methods.isPasswordValid = async function (password) {
   // Note: Don't use around func here. Because in around func "this" not exist
   try {
     return await bcrypt.compare(password, this.password);
   } catch (error) {
-    createError.Unauthorized();
+    throw createError.Unauthorized();
   }
 };
 

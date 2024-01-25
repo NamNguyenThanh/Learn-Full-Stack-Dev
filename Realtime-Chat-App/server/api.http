@@ -3,13 +3,20 @@ POST http://localhost:8080/api/v1/user/register
 Content-Type: application/json
 
 {
-    "username": "na",
-    "email": "na@gmail.com",
+    "username": "huongvpq",
+    "email": "huongvpq@gmail.com",
     "password": "1"
 }
 
 ###
 POST http://localhost:8080/api/v1/user/login
+Content-Type: application/json
+
+{
+    "username": "huongvpq",
+    "password": "1"
+}
+
 
 ###
 GET http://localhost:8080/api/v1/user/logout/123456

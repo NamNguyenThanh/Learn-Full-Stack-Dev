@@ -17,7 +17,7 @@ module.exports.register = async (req, res, next) => {
 
     // Create new user
     const user = await userService.createUser({ username, email, password });
-    delete user.password;
+    user.password = undefined;
 
     return res.json({
       status: 200,
@@ -30,7 +30,23 @@ module.exports.register = async (req, res, next) => {
 
 module.exports.login = async (req, res, next) => {
   try {
-    console.log("Login user:::", req.body);
+    const { username, password } = req.body;
+    // Check Username Valid
+    const user = await userService.getUser({ username });
+    if (!user) throw createError.Unauthorized();
+
+    // Check Password Valid
+    const isPasswordValid = await user.isPasswordValid(password);
+    if (!isPasswordValid) throw createError.Unauthorized();
+
+    // Gen Access Token and Refresh Token
+    // TODO: Gen Access Token and Refresh Token
+    console.log("....", user);
+    user.password = undefined;
+    return res.json({
+      status: 200,
+      user,
+    });
   } catch (error) {
     next(error);
   }
