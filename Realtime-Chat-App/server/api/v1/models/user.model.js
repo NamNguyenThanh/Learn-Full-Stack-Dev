@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const createError = require("http-errors");
-const connection = require("../helpers/mongodb.connection");
+const connection = require("../databases/init.mongodb");
 
 const userSchema = new mongoose.Schema({
   username: {

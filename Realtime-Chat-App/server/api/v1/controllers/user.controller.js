@@ -55,6 +55,7 @@ module.exports.login = async (req, res, next) => {
 module.exports.logout = (req, res, next) => {
   try {
     console.log("Logout user:::", req.body);
+    next();
   } catch (error) {
     next(error);
   }

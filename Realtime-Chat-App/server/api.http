@@ -1,5 +1,7 @@
-###
-POST http://localhost:8080/api/v1/user/register
+@url=http://localhost:8080/api/v1
+
+### Register User
+POST {{url}}/user/register
 Content-Type: application/json
 
 {
@@ -8,8 +10,8 @@ Content-Type: application/json
     "password": "1"
 }
 
-###
-POST http://localhost:8080/api/v1/user/login
+### Login User
+POST {{url}}/user/login
 Content-Type: application/json
 
 {
@@ -18,5 +20,5 @@ Content-Type: application/json
 }
 
 
-###
-GET http://localhost:8080/api/v1/user/logout/123456
+### Logout User
+GET {{url}}/user/logout/123456
