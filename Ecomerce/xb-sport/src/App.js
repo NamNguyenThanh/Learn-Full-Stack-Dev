@@ -1,5 +1,5 @@
 function App() {
-  return <h1>Hello xin chao cac ban</h1>;
+  return <h1>XB Sports xin chào quý khách!</h1>;
 }
 
 export default App;
