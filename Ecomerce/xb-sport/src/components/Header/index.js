@@ -5,7 +5,7 @@ export default function Header() {
         <div className="container">
           <div className="header__logo">
             <a href="/">
-              <img src={'../../assets/images/header-logo.png'} alt="logo" />
+              <img src={require('../../assets/images/header-logo.png')} alt="logo" />
             </a>
           </div>
           <div className="header__search">

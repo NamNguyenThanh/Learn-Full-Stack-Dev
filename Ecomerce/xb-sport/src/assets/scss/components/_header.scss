@@ -80,6 +80,7 @@
       color: #fff;
 
       text-decoration: none;
+
       .icon-box {
         position: relative;
 
@@ -170,6 +171,9 @@
           padding: 6px 15px;
           > i {
             margin-right: 8px;
+          }
+          &:hover {
+            color: #172efd;
           }
         }
       }
