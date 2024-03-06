@@ -1,6 +1,8 @@
 'use strict';
 
 const JWT = require('jsonwebtoken');
+const { InternalServerError } = require('../core/error.response');
+
 const createTokenPair = async (payload, publicKey, privateKey) => {
   try {
     // accessToken
@@ -23,8 +25,7 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
     });
     return { accessToken, refreshToken };
   } catch (error) {
-    console.log(`error createTokenPair::`, error);
-    return error;
+    throw new InternalServerError('[ERROR] Create Access Token and Refresh Token failed.');
   }
 };
 
