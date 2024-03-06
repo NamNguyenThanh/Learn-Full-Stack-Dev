@@ -8,16 +8,19 @@ const app = express();
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(compression());
-
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  }),
+);
 // Init db
 require('./dbs/init.mongodb');
 const { checkOverload } = require('./helpers/check.connect');
-checkOverload();
+// checkOverload();
 
 // Init router
-app.get('/', (req, res) => {
-  return res.status(200).json({ message: 'OK' });
-});
+app.use('/', require('./routers'));
 
 // Handle errors
 
