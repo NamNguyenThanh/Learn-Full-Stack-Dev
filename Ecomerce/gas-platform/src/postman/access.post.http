@@ -3,9 +3,10 @@
 ### shop signup
 POST {{url}}/shop/signup
 Content-Type: application/json
+x-api-key: 5fa1105377081aa24ec2cf28457da00a8b2a9593753d27803d5e22a5ca8588d2bab0dec2593dc05d2aa69d9f98502cf2fb5894d8064e2153857239a3cb7d4f0f
 
 {
   "name": "Shop CNCL",
-  "email": "2@gmail.com",
+  "email": "5@gmail.com",
   "password": "abc123"
 }

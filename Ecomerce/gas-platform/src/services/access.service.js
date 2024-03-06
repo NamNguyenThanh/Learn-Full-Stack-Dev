@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 const crypto = require('node:crypto');
 const shopModel = require('../models/shop.model');
-const KeyTokenService = require('./keyToken.service');
+const KeyTokenService = require('./keytoken.service');
 const { createTokenPair } = require('../auth/authUtils');
 const { getInfoData } = require('../utils');
 
@@ -66,7 +66,7 @@ class AccessService {
           status: 'error',
         };
       }
-      const publicKeyObject = crypto.createPublicKey(keyToken['publicKey']);
+      const publicKeyObject = crypto.createPublicKey(keyToken.publicKey);
 
       // Create token pair
       const tokens = await createTokenPair({ userId: newShop._id, email }, publicKeyObject, privateKey);
