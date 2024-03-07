@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
-const { ReasonPhrases, StatusCodes } = require('./core/httpStatusCode/httpStatusCode');
+const { ReasonPhrases, StatusCodes } = require('./utils/httpStatusCode/httpStatusCode');
 const app = express();
 
 // Init middleware
