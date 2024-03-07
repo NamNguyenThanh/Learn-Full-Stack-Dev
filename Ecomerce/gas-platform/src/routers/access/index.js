@@ -3,7 +3,7 @@
 const express = require('express');
 
 const accessController = require('../../controllers/access.controller');
-const { asyncHandler } = require('../../utils');
+const { asyncHandler } = require('../../helpers/asyncHandler');
 
 const router = express.Router();
 
