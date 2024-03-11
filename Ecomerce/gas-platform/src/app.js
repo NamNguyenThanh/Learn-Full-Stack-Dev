@@ -32,7 +32,6 @@ app.use((req, res, next) => {
 });
 // Ham quan ly loi co 4 tham so (error, req, res, next)
 app.use((err, req, res, next) => {
-  console.log('Enter error response');
   const statusCode = err.status || StatusCodes.INTERNAL_SERVER_ERROR;
   return res.status(statusCode).json({
     code: statusCode,

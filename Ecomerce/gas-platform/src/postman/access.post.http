@@ -7,7 +7,7 @@ x-api-key: 5fa1105377081aa24ec2cf28457da00a8b2a9593753d27803d5e22a5ca8588d2bab0d
 
 {
   "name": "Shop CNCL",
-  "email": "1@gmail.com",
+  "email": "2@gmail.com",
   "password": "abc123"
 }
 
@@ -20,3 +20,10 @@ x-api-key: 5fa1105377081aa24ec2cf28457da00a8b2a9593753d27803d5e22a5ca8588d2bab0d
   "email": "1@gmail.com",
   "password": "abc123"
 }
+
+
+### shop logout
+POST {{url}}/shop/logout
+x-api-key: 5fa1105377081aa24ec2cf28457da00a8b2a9593753d27803d5e22a5ca8588d2bab0dec2593dc05d2aa69d9f98502cf2fb5894d8064e2153857239a3cb7d4f0f
+x-client-id: 65ead4410291e7738dbe6d5b
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWVhZDQ0MTAyOTFlNzczOGRiZTZkNWIiLCJlbWFpbCI6IjFAZ21haWwuY29tIiwiaWF0IjoxNzA5ODkwMDgyLCJleHAiOjE3MTAwNjI4ODJ9.KJp7HCHqPxlc9eRwJ8Trf34EYaUVWXpfEjxa-Fyu_KM

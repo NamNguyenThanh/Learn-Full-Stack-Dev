@@ -2,10 +2,11 @@
 
 const express = require('express');
 const { apiKey, permission } = require('../auth/checkAuth');
+const { asyncHandler } = require('../helpers/asyncHandler');
 const router = express.Router();
 
 // check apiKey by using custom middleware
-router.use(apiKey);
+router.use(asyncHandler(apiKey));
 
 // check permissions
 router.use(permission('0000'));

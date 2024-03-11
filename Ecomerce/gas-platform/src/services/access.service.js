@@ -28,17 +28,19 @@ class AccessService {
       throw new AuthFailureError('[ERROR]: Authentication error');
     }
     // Step 3: Create AT vs RT and save
-    const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
-      modulusLength: 4096,
-      publicKeyEncoding: {
-        type: 'pkcs1',
-        format: 'pem',
-      },
-      privateKeyEncoding: {
-        type: 'pkcs1',
-        format: 'pem',
-      },
-    });
+    // const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
+    //   modulusLength: 4096,
+    //   publicKeyEncoding: {
+    //     type: 'pkcs1',
+    //     format: 'pem',
+    //   },
+    //   privateKeyEncoding: {
+    //     type: 'pkcs1',
+    //     format: 'pem',
+    //   },
+    // });
+    const publicKey = crypto.randomBytes(32).toString('hex');
+    const privateKey = crypto.randomBytes(32).toString('hex');
     // Step 4: Generate tokens
     // Create token pair
     const tokens = await createTokenPair({ userId: shop._id, email }, publicKey, privateKey);
@@ -63,6 +65,11 @@ class AccessService {
     };
   };
 
+  static logout = async ({ keyToken }) => {
+    console.log('Enter Logout');
+    return await KeyTokenService.removeKeyById(keyToken._id);
+  };
+
   static signUp = async ({ name, email, password }) => {
     // Step 1: Check email exited
     const holderShop = await shopModel.findOne({ email }).lean();
@@ -82,17 +89,19 @@ class AccessService {
       throw new InternalServerError('[ERROR]: Create Shop failed.');
     }
     // create publickey (for dev) and privatekey (for user)
-    const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
-      modulusLength: 4096,
-      publicKeyEncoding: {
-        type: 'pkcs1',
-        format: 'pem',
-      },
-      privateKeyEncoding: {
-        type: 'pkcs1',
-        format: 'pem',
-      },
-    });
+    // const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
+    //   modulusLength: 4096,
+    //   publicKeyEncoding: {
+    //     type: 'pkcs1',
+    //     format: 'pem',
+    //   },
+    //   privateKeyEncoding: {
+    //     type: 'pkcs1',
+    //     format: 'pem',
+    //   },
+    // });
+    const publicKey = crypto.randomBytes(32).toString('hex');
+    const privateKey = crypto.randomBytes(32).toString('hex');
 
     // Create token pair
     const tokens = await createTokenPair({ userId: newShop._id, email }, publicKey, privateKey);
