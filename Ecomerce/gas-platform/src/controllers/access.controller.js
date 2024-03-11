@@ -4,6 +4,12 @@ const AccessService = require('../services/access.service');
 const { CREATED, OK } = require('../core/success.response');
 
 class AccessController {
+  handleRefreshToken = async (req, res, next) => {
+    new OK({
+      message: 'Get Token Success!',
+      metadata: await AccessService.handleRefreshToken(req.body),
+    }).send(res);
+  };
   signUp = async (req, res, next) => {
     new CREATED({
       message: 'Your account has been created',
