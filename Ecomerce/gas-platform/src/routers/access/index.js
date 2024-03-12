@@ -11,7 +11,9 @@ const router = express.Router();
 router.post('/shop/signup', asyncHandler(accessController.signUp));
 router.post('/shop/login', asyncHandler(accessController.login));
 
+// Check authentication and set req.keyToken (get from db) if request is authenticated
 router.use(authentication);
+
 router.post('/shop/logout', asyncHandler(accessController.logout));
 router.post('/shop/handleRefreshToken', asyncHandler(accessController.handleRefreshToken));
 
