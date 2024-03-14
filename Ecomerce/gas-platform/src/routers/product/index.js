@@ -6,6 +6,9 @@ const { asyncHandler } = require('../../helpers/asyncHandler');
 const { authentication } = require('../../auth/authUtils');
 
 const router = express.Router();
+
+router.get('/search/:keySearch', asyncHandler(productController.getListSearchProdut));
+
 // Check authentication and set req.keyToken (get from db) if request is authenticated
 router.use(authentication);
 

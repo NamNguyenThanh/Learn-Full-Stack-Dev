@@ -7,6 +7,7 @@ const {
   findAllPublishForShop,
   publicProductByShop,
   unPublicProductByShop,
+  searchProductByUser,
 } = require('../models/repositories/product.repo');
 
 // Use FActory Pattern
@@ -30,6 +31,10 @@ class ProductFactory {
   static async findAllPublishForShop({ product_shop, limit = 50, skip = 0 }) {
     const query = { product_shop, isPublished: true };
     return await findAllPublishForShop({ query, limit, skip });
+  }
+
+  static async searchProducts({ keySearch }) {
+    return await searchProductByUser({ keySearch });
   }
 
   // PUT

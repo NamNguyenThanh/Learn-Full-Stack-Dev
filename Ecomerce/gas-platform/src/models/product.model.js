@@ -25,14 +25,16 @@ var productSchema = new Schema(
       set: (val) => Math.round(val * 10) / 10,
     },
     product_variations: { type: Array, default: [] },
-    isDraft: { type: Boolean, default: true, index: true, select: false },
-    isPublished: { type: Boolean, default: false, index: true, select: false },
+    isDraft: { type: Boolean, default: true, index: true },
+    isPublished: { type: Boolean, default: false, index: true },
   },
   {
     collection: COLLECTION_NAME,
     timestamps: true,
   },
 );
+// Create index for search
+productSchema.index({ product_name: 'text', product_description: 'text' });
 
 // Document middleware: runs before .save() and .create() ...
 productSchema.pre('save', function (next) {

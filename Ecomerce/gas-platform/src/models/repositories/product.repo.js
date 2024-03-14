@@ -23,39 +23,27 @@ const findAllPublishForShop = async ({ query, limit, skip }) => {
 };
 
 const publicProductByShop = async ({ product_shop, product_id }) => {
-  const filter = {
-    product_shop: product_shop,
-    _id: product_id,
-  };
-
-  const update = {
-    isDraft: false,
-    isPublished: true,
-  };
-
-  const options = {
-    new: true,
-  };
-
-  return await product.findOneAndUpdate(filter, update, options);
+  return await product.findOneAndUpdate(
+    { product_shop: product_shop, _id: product_id },
+    { isDraft: false, isPublished: true },
+    { new: true },
+  );
 };
 
 const unPublicProductByShop = async ({ product_shop, product_id }) => {
-  const filter = {
-    product_shop: product_shop,
-    _id: product_id,
-  };
+  return await product.findOneAndUpdate(
+    { product_shop: product_shop, _id: product_id },
+    { isDraft: true, isPublished: false },
+    { new: true },
+  );
+};
 
-  const update = {
-    isDraft: true,
-    isPublished: false,
-  };
-
-  const options = {
-    new: true,
-  };
-
-  return await product.findOneAndUpdate(filter, update, options);
+const searchProductByUser = async ({ keySearch }) => {
+  const regexSearch = new RegExp(keySearch);
+  return await product
+    .find({ isPublished: true, $text: { $search: regexSearch } }, { score: { $meta: 'textScore' } })
+    .sort({ score: { $meta: 'textScore' } })
+    .lean();
 };
 
 module.exports = {
@@ -63,4 +51,5 @@ module.exports = {
   findAllPublishForShop,
   publicProductByShop,
   unPublicProductByShop,
+  searchProductByUser,
 };
