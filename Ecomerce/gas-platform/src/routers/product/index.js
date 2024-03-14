@@ -10,4 +10,11 @@ const router = express.Router();
 router.use(authentication);
 
 router.post('', asyncHandler(productController.createProduct));
+router.post('/public/:id', asyncHandler(productController.publicProductByShop));
+router.post('/unpublic/:id', asyncHandler(productController.unPublicProductByShop));
+
+// QUERY
+router.get('/drafts/all', asyncHandler(productController.getAllDraftsForShop));
+router.get('/published/all', asyncHandler(productController.getAllPublishForShop));
+
 module.exports = router;

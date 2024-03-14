@@ -12,7 +12,6 @@ class SuccessResponse {
     return res.status(this.status).json(this);
   }
 }
-
 class OK extends SuccessResponse {
   constructor({ message, metadata }) {
     super({ message, metadata });

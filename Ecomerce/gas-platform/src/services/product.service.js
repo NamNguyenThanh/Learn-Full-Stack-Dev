@@ -2,18 +2,43 @@
 
 const { product, cloth, electronic } = require('../models/product.model');
 const { BadRequestError } = require('../core/error.response');
+const {
+  findAllDraftsForShop,
+  findAllPublishForShop,
+  publicProductByShop,
+  unPublicProductByShop,
+} = require('../models/repositories/product.repo');
 
 // Use FActory Pattern
 class ProductFactory {
+  static productRegistry = {}; // key-class
+  static registerProductType(type, classRef) {
+    ProductFactory.productRegistry[type] = classRef;
+  }
   static async createProduct(product_type, payload) {
-    switch (product_type) {
-      case 'Cloth':
-        return new Cloth(payload).createProduct();
-      case 'Electronic':
-        return new Electronic(payload).createProduct();
-      default:
-        throw new BadRequestError('Invalid product Types', product_type);
-    }
+    const productClass = ProductFactory.productRegistry[product_type];
+    if (!productClass) throw new BadRequestError('Invalid product Types', product_type);
+    return new productClass(payload).createProduct();
+  }
+
+  // QUERY
+  static async findAllDraftsForShop({ product_shop, limit = 50, skip = 0 }) {
+    const query = { product_shop, isDraft: true };
+    return await findAllDraftsForShop({ query, limit, skip });
+  }
+
+  static async findAllPublishForShop({ product_shop, limit = 50, skip = 0 }) {
+    const query = { product_shop, isPublished: true };
+    return await findAllPublishForShop({ query, limit, skip });
+  }
+
+  // PUT
+  static async publicProductByShop({ product_shop, product_id }) {
+    return await publicProductByShop({ product_shop, product_id });
+  }
+
+  static async unPublicProductByShop({ product_shop, product_id }) {
+    return await unPublicProductByShop({ product_shop, product_id });
   }
 }
 
@@ -72,5 +97,9 @@ class Electronic extends Product {
     return newProduct;
   }
 }
+
+// Register new product class
+ProductFactory.registerProductType('Cloth', Cloth);
+ProductFactory.registerProductType('Electronic', Electronic);
 
 module.exports = ProductFactory;
