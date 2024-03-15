@@ -1,7 +1,7 @@
 'use strict';
 
-const { NotFoundError } = require('../../core/error.response');
-const { product, cloth, electronic } = require('../../models/product.model');
+const { product } = require('../../models/product.model');
+const { getSelectData, getUnSelectData } = require('../../utils');
 
 const queryProduct = async ({ query, limit, skip }) => {
   return await product
@@ -46,10 +46,22 @@ const searchProductByUser = async ({ keySearch }) => {
     .lean();
 };
 
+const findAllProducts = async ({ limit, sort, page, filter, select }) => {
+  const skip = (page - 1) * limit;
+  const sortBy = sort === 'ctime' ? { _id: -1 } : { _id: 1 };
+  return await product.find(filter).sort(sortBy).skip(skip).limit(limit).select(getSelectData(select)).lean();
+};
+
+const findProduct = async ({ product_id, unSelect }) => {
+  return await product.findById(product_id).select(getUnSelectData(unSelect)).lean();
+};
+
 module.exports = {
   findAllDraftsForShop,
   findAllPublishForShop,
   publicProductByShop,
   unPublicProductByShop,
   searchProductByUser,
+  findAllProducts,
+  findProduct,
 };

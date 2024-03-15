@@ -7,7 +7,9 @@ const { authentication } = require('../../auth/authUtils');
 
 const router = express.Router();
 
-router.get('/search/:keySearch', asyncHandler(productController.getListSearchProdut));
+router.get('/search/:keySearch', asyncHandler(productController.getListSearchProduct));
+router.get('', asyncHandler(productController.getAllProducts));
+router.get('/:product_id', asyncHandler(productController.getProduct));
 
 // Check authentication and set req.keyToken (get from db) if request is authenticated
 router.use(authentication);
