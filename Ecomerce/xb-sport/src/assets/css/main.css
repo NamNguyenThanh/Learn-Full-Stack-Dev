@@ -158,13 +158,13 @@ body {
 .header-top {
   height: 70px;
   padding: 5px 0;
-  background-color: #172efd;
+  background-color: var(--primary-color);
 }
 .header-bot {
   display: flex;
   justify-content: center;
   height: 40px;
-  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 5px 2px var(--header-bot-shadow);
 }
 .header__logo {
   width: 22.2222222222%;
@@ -195,10 +195,10 @@ body {
   width: 80px;
   border-radius: 5px;
   border: none;
-  background-color: #172efd;
+  background-color: var(--primary-color);
 }
 .header__search .search__btn > i {
-  color: #fff;
+  color: var(--white-color);
   font-size: 2.2rem;
 }
 .header__topnav {
@@ -206,24 +206,24 @@ body {
   width: 44.4444444444%;
 }
 .header__topnav .icon-text-box {
-  color: #fff;
+  color: var(--white-color);
   text-decoration: none;
 }
 .header__topnav .icon-text-box .icon-box {
   position: relative;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
 }
 .header__topnav .icon-text-box .icon-box .cart-number {
   position: absolute;
   right: 2px;
   top: -6px;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: #f70000;
   font-size: 0.9rem;
-  line-height: 15px;
+  line-height: 12px;
   text-align: center;
 }
 .header__topnav .icon-text-box .text-box {
@@ -239,14 +239,14 @@ body {
 .header__topnav .cart-box {
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid #fff;
+  border: 1px solid var(--white-color);
 }
 .header__category {
   justify-content: start;
   width: 25%;
   height: 100%;
   padding-left: 20px;
-  color: #fff;
+  color: var(--white-color);
   background-color: #1221aa;
   font-size: 1.6rem;
   font-weight: 700;
@@ -283,7 +283,7 @@ body {
   margin-right: 8px;
 }
 .header__services .services__item a:hover {
-  color: #172efd;
+  color: var(--primary-color);
 }
 
 .container {
@@ -453,6 +453,13 @@ body {
 .footer__bot a {
   color: #fff;
   text-decoration: none;
+}
+
+html {
+  --primary-color: #172efd;
+  --white-color: #fff;
+  --black-color: #fff;
+  --header-bot-shadow: rgba(0, 0, 0, 0.15);
 }
 
 /*# sourceMappingURL=main.css.map */
