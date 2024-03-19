@@ -10,18 +10,26 @@ const {
   searchProductByUser,
   findAllProducts,
   findProduct,
+  updateProductById,
 } = require('../models/repositories/product.repo');
+const { cleanObject, updateNestedObject } = require('../utils');
 
 // Use FActory Pattern
 class ProductFactory {
   static productRegistry = {}; // key-class
-  static registerProductType(type, classRef) {
-    ProductFactory.productRegistry[type] = classRef;
+  static registerProductType(product_type, classRef) {
+    ProductFactory.productRegistry[product_type] = classRef;
   }
   static async createProduct(product_type, payload) {
     const productClass = ProductFactory.productRegistry[product_type];
     if (!productClass) throw new BadRequestError('Invalid product Types', product_type);
     return new productClass(payload).createProduct();
+  }
+
+  static async updateProduct(product_type, product_id, payload) {
+    const productClass = ProductFactory.productRegistry[product_type];
+    if (!productClass) throw new BadRequestError('Invalid product Types', product_type);
+    return new productClass(payload).updateProduct(product_id);
   }
 
   // QUERY
@@ -87,6 +95,10 @@ class Product {
   async createProduct(product_id) {
     return await product.create({ ...this, _id: product_id });
   }
+
+  async updateProduct(product_id, payload) {
+    return await updateProductById({ model: product, product_id, payload });
+  }
 }
 
 class Cloth extends Product {
@@ -102,6 +114,19 @@ class Cloth extends Product {
 
     return newProduct;
   }
+
+  async updateProduct(product_id) {
+    // Step 1: Remove attributes has null/undifined
+    const payload = cleanObject(this);
+    // Step 2: Check and update
+    if (payload.product_attributes) {
+      // Update Child Attributes
+      await updateProductById({ model: cloth, product_id, payload: updateNestedObject(payload.product_attributes) });
+    }
+    // Update Parent
+    const updatedProduct = await super.updateProduct(product_id, updateNestedObject(payload));
+    return updatedProduct;
+  }
 }
 
 class Electronic extends Product {
@@ -116,6 +141,23 @@ class Electronic extends Product {
     if (!newProduct) throw new BadRequestError('Create new Product failed');
 
     return newProduct;
+  }
+
+  async updateProduct(product_id) {
+    // Step 1: Remove attributes has null/undifined
+    const payload = cleanObject(this);
+    // Step 2: Check and update
+    if (payload.product_attributes) {
+      // Update Child Attributes
+      await updateProductById({
+        model: electronic,
+        product_id,
+        payload: updateNestedObject(payload.product_attributes),
+      });
+    }
+    // Update Parent
+    const updatedProduct = await super.updateProduct(product_id, updateNestedObject(payload));
+    return updatedProduct;
   }
 }
 

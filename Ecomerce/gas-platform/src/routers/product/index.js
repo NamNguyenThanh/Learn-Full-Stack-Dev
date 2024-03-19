@@ -15,6 +15,7 @@ router.get('/:product_id', asyncHandler(productController.getProduct));
 router.use(authentication);
 
 router.post('', asyncHandler(productController.createProduct));
+router.patch('/:product_id', asyncHandler(productController.updateProduct));
 router.post('/public/:id', asyncHandler(productController.publicProductByShop));
 router.post('/unpublic/:id', asyncHandler(productController.unPublicProductByShop));
 
