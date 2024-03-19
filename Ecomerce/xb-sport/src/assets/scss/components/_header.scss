@@ -185,3 +185,34 @@
   @extend %flex-center;
   width: 1200px;
 }
+
+.active {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  animation: fadein 0.3s;
+}
+
+.hidden {
+  position: fixed;
+  top: -100%;
+  animation: fadeout 0.3s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

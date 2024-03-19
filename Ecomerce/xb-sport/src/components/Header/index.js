@@ -1,6 +1,27 @@
+import { useState, useEffect } from 'react';
+
 export default function Header() {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
+
   return (
-    <div className="header">
+    <div className={`active ${!show && 'hidden'}`}>
       <div className="header-top">
         <div className="container">
           <div className="header__logo">
