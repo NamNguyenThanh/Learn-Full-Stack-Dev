@@ -1,18 +1,26 @@
-$grid-breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px,
-);
+@use './grid';
 
 @mixin breakpoint($key) {
-  $breakpoint: map-get($grid-breakpoints, $key);
+  $breakpoint: map-get(grid.$grid-breakpoints, $key);
   @if ($breakpoint) {
     @media (max-width: ($breakpoint - 0.02)) {
       @content;
     }
   } @else {
     @error 'The value "#{$key}" is not in breakpoints list.';
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
   }
 }

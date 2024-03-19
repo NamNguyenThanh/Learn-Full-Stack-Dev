@@ -21,25 +21,26 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <div className={`active ${!show && 'hidden'}`}>
+    <div className={show ? 'header-active' : 'header-hidden'}>
       <div className="header-top">
         <div className="container">
-          <div className="header__logo">
+          <div className="header__logo col-lg-3 col-md-3 col-sm-3 col-3">
             <a href="/">
               <img src={require('../../assets/images/header-logo.png')} alt="logo" />
             </a>
           </div>
-          <div className="header__search">
+          <div className="header__search col-lg-4 col-md-6 col-sm-7 col-7">
             <form className="search" action="/search">
               <input className="search__input" type="text" placeholder="Bạn đang tìm gì..." autoComplete="off" />
               <button className="search__btn" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </form>
-            <div className="search-results"></div>
+            <div className="search-results"></div> 
           </div>
-          <ul className="header__topnav">
-            <li className="topnav__item">
+          <ul className="header__topnav col-lg-5 col-md-3 col-sm-2 col-2">
+            <li className="topnav__item"></li>
+            <li className="topnav__item hidden-lg">
               <a className="icon-text-box" href="tel:0964 953 286">
                 <i class="fa-solid fa-phone-volume icon-box" />
                 <div className="text-box">
@@ -48,7 +49,7 @@ export default function Header() {
                 </div>
               </a>
             </li>
-            <li className="topnav__item">
+            <li className="topnav__item hidden-lg">
               <a className="icon-text-box" href="tel:0964 953 286">
                 <i class="fa-solid fa-map-location-dot icon-box" />
                 <div className="text-box">
@@ -61,9 +62,9 @@ export default function Header() {
               </a>
             </li>
             <li className="topnav__item">
-              <a className="icon-text-box" href="tel:0964 953 286">
+              <a className="icon-text-box" href="/">
                 <i class="fa-solid fa-user icon-box"></i>
-                <div className="text-box">
+                <div className="text-box hidden-md">
                   <p>Đăng nhập</p>
                   <p>
                     Đăng ký
@@ -73,11 +74,11 @@ export default function Header() {
               </a>
             </li>
             <li className="topnav__item cart-box">
-              <a className="icon-text-box" href="tel:0964 953 286">
+              <a className="icon-text-box" href="/">
                 <i class="fa-solid fa-cart-shopping icon-box">
                   <span className="cart-number">0</span>
                 </i>
-                <div className="text-box">
+                <div className="cart-text-box">
                   <p>Giỏ hàng</p>
                 </div>
               </a>
