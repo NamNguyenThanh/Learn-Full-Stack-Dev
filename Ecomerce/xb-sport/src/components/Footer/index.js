@@ -2,16 +2,16 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__top">
-        <div className="container register">
-          <span className="register__title">ĐĂNG KÝ NHẬN TIN</span>
-          <form className="register__form">
+        <div className="container register row">
+          <span className="register__title col-md-4 col-12">ĐĂNG KÝ NHẬN TIN</span>
+          <form className="register__form col-md-5 col-11">
             <input type="email" placeholder="Email" />
             <button>
               <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
               ĐĂNG KÝ
             </button>
           </form>
-          <div className="register__social">
+          <div className="register__social col-md-3 col-12">
             <a href="/">
               <i class="fa-brands fa-tiktok"></i>
             </a>
@@ -28,9 +28,9 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer__mid">
-        <div className="container">
-          <div className="item-info">
-            <a href="/">
+        <div className="container row">
+          <div className="item-info col-lg-3 col-md-6 col-12">
+            <a className="img-container" href="/">
               <img className="logo" src={require('../../assets/images/header-logo.png')} alt="logo" />
             </a>
             <p>
@@ -57,7 +57,7 @@ export default function Footer() {
               <li>MST: 0318177707</li>
             </ul>
           </div>
-          <div className="item-info">
+          <div className="item-info col-lg-3 col-md-6 col-12">
             <div className="item-info__title">CHÍNH SÁCH</div>
             <div className="item-info__body">
               <ul className="list-info">
@@ -85,7 +85,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="item-info">
+          <div className="item-info col-lg-3 col-md-6 col-12">
             <div className="item-info__title">CHĂM SÓC KHÁCH HÀNG</div>
             <div className="item-info__body">
               <ul className="list-info">
@@ -107,7 +107,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="item-info">
+          <div className="item-info col-lg-3 col-md-6 col-12">
             <div className="item-info__title">Hỗ trợ</div>
             <p>Hệ thống cửa hàng:</p>
             <div className="item-info__body">
@@ -121,14 +121,17 @@ export default function Footer() {
               </ul>
             </div>
             <div className="item-info__title">Phương thức thanh toán</div>
-            <img src={require('../../assets/images/footer_trustbadge.webp')} alt="" />
+            <div className="img-container">
+              <img className="item-info__img" src={require('../../assets/images/footer_trustbadge.webp')} alt="" />
+            </div>
           </div>
         </div>
       </div>
       <div className="footer__bot">
         <div className="container">
-          © Copyright 2024 By
-          <a href="/">XBSPORTS - HỆ THỐNG CỬA HÀNG CẦU LÔNG UY TÍN.</a>
+          <span>
+            © Copyright {new Date().getFullYear()} By <a href="/"> XBSPORTS - HỆ THỐNG CỬA HÀNG CẦU LÔNG UY TÍN.</a>
+          </span>
         </div>
       </div>
     </footer>

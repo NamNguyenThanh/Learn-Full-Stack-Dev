@@ -149,6 +149,10 @@ body {
   font-family: Mulish, sans-serif !important;
 }
 
+input {
+  font-family: inherit;
+}
+
 .row > * {
   padding-left: calc(var(--grid-gutter-x) * 0.5);
   padding-right: calc(var(--grid-gutter-x) * 0.5);
@@ -1425,32 +1429,43 @@ body {
 .footer__top {
   display: flex;
   justify-content: center;
-  height: 72px;
+  min-height: 72px;
+  width: 100%;
   background-color: #202121;
 }
 .footer__top .register {
-  justify-content: space-between;
   border-bottom: 1px solid #fff;
   color: #fff;
 }
 .footer__top .register__title {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
 }
+@media (max-width: 767.98px) {
+  .footer__top .register__title {
+    margin: 5px 0;
+    text-align: center;
+  }
+}
 .footer__top .register__form {
+  display: flex;
   height: 45px;
-  background-color: aqua;
+}
+@media (max-width: 767.98px) {
+  .footer__top .register__form {
+    margin: 5px 0;
+  }
 }
 .footer__top .register__form > input {
   height: 100%;
-  width: 332px;
+  width: 70%;
   padding: 2px 10px;
   border: none;
   outline: none;
 }
 .footer__top .register__form > button {
   height: 100%;
-  width: 120px;
+  width: 30%;
   border: none;
   background-color: #172efd;
   color: #fff;
@@ -1458,22 +1473,30 @@ body {
 .footer__top .register__form > button > i {
   margin-right: 5px;
 }
+.footer__top .register__social {
+  display: flex;
+  justify-content: right;
+}
+@media (max-width: 767.98px) {
+  .footer__top .register__social {
+    justify-content: center;
+    margin: 10px 0;
+  }
+}
 .footer__top .register__social > a > i {
   margin-left: 15px;
   color: #fff;
-  font-size: 20px;
+  font-size: 2.5rem;
 }
 .footer__mid {
   display: flex;
   justify-content: center;
-  height: 318px;
-  padding-top: 20px;
+  padding-top: 5px;
   background-color: #202121;
 }
 .footer__mid .item-info {
-  width: 25%;
-  height: 100%;
-  margin: 0 10px;
+  align-self: start;
+  margin-top: 5px;
 }
 .footer__mid .item-info:first-child {
   margin-left: 0px;
@@ -1484,11 +1507,20 @@ body {
 .footer__mid .item-info .logo {
   max-height: 60px;
 }
+.footer__mid .item-info .img-container {
+  display: flex;
+  justify-content: center;
+}
 .footer__mid .item-info__title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #fff;
   text-transform: uppercase;
   font-size: 1.8rem;
+}
+@media (max-width: 991.98px) {
+  .footer__mid .item-info__title {
+    text-align: center;
+  }
 }
 .footer__mid .item-info ul {
   margin-top: 10px;
@@ -1534,6 +1566,9 @@ body {
 }
 .footer__mid .item-info p {
   color: #fff;
+}
+.footer__mid .item-info__img {
+  max-width: 100%;
 }
 .footer__bot {
   display: flex;
