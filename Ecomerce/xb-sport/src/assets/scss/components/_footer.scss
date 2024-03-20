@@ -4,21 +4,21 @@
   justify-content: center;
   align-items: center;
 }
-.container {
-  @extend %flex-center;
-  width: 1200px;
-}
 
 .footer {
+  @include mixins.breakpoint(lg) {
+    margin-bottom: var(--navbar-mobile-hight);
+  }
   &__top {
-    display: flex;
-    justify-content: center;
+    @extend %flex-center;
 
     min-height: 72px;
     width: 100%;
 
     background-color: #202121;
     .register {
+      @extend %flex-center;
+      padding-bottom: 5px;
       border-bottom: 1px solid #fff;
       color: #fff;
 
@@ -31,7 +31,6 @@
         }
       }
       &__form {
-        display: flex;
         height: 45px;
         @include mixins.breakpoint(md) {
           margin: 5px 0;
@@ -72,8 +71,7 @@
     }
   }
   &__mid {
-    display: flex;
-    justify-content: center;
+    @extend %flex-center;
 
     padding-top: 5px;
 
@@ -162,13 +160,14 @@
     }
   }
   &__bot {
-    display: flex;
-    justify-content: center;
+    @extend %flex-center;
 
     height: 50px;
 
     color: #fff;
     background-color: #101110;
+
+    text-align: center;
     a {
       color: #fff;
 

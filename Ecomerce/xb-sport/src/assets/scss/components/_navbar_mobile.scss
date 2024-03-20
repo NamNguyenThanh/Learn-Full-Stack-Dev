@@ -1,0 +1,46 @@
+@use '../base/mixins';
+
+.navbar-mobile {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: var(--navbar-mobile-hight);
+
+  background-color: var(--white-color);
+  box-shadow: 0 0 3px 0 #929292;
+
+  display: none;
+
+  @include mixins.breakpoint(lg) {
+    display: block !important;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    &__item {
+      display: flex;
+      justify-content: center;
+
+      text-align: center;
+      font-size: 1.2rem;
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+        aspect-ratio: auto 24/24;
+      }
+    }
+  }
+}

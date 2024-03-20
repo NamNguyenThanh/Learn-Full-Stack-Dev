@@ -12,16 +12,19 @@
 
 .header {
   &-top {
-    @extend %flex-center;
+    display: flex;
 
     height: 70px;
     padding: 5px 0;
 
+    background-color: var(--primary-color);
+
     @include mixins.breakpoint(md) {
       height: 50px;
     }
-
-    background-color: var(--primary-color);
+    @include mixins.breakpoint(lg) {
+      box-shadow: 0 1px 5px 2px var(--header-bot-shadow);
+    }
   }
   &-bot {
     display: flex;

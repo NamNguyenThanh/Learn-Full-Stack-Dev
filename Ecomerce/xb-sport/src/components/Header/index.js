@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <div className={show ? 'header-active' : 'header-hidden'}>
       <div className="header-top">
-        <div className="container">
+        <div className="container d-flex d-flex-center">
           <div className="header__logo col-lg-3 col-md-3 col-sm-3 col-3">
             <a href="/">
               <img src={require('../../assets/images/header-logo.png')} alt="logo" />
@@ -36,7 +36,7 @@ export default function Header() {
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </form>
-            <div className="search-results"></div> 
+            <div className="search-results"></div>
           </div>
           <ul className="header__topnav col-lg-5 col-md-3 col-sm-2 col-2">
             <li className="topnav__item"></li>
@@ -87,7 +87,7 @@ export default function Header() {
         </div>
       </div>
       <div className="header-bot">
-        <div className="container">
+        <div className="container d-flex d-flex-center">
           <div className="header__category">
             <i class="fa-solid fa-bars"></i>
             DANH MỤC SẢN PHẨM

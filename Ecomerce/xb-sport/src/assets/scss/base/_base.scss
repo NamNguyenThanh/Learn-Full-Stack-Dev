@@ -17,3 +17,11 @@ body {
 input {
   font-family: inherit;
 }
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  &-center {
+    align-items: center;
+  }
+}
