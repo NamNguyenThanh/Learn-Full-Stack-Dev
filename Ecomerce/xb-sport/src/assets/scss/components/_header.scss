@@ -187,7 +187,7 @@
       white-space: nowrap;
 
       &::-webkit-scrollbar {
-        height: 10px;
+        height: 6px;
       }
       &::-webkit-scrollbar-track {
         background: #f0f0f1;
@@ -223,12 +223,14 @@
   left: 0px;
   right: 0px;
   animation: fadeIn 0.3s;
+  z-index: 1000;
 }
 
 .header-hidden {
   position: fixed;
   top: -100%;
   animation: fadeOut 0.3s;
+  z-index: 1000;
 }
 
 @include mixins.keyframes(fadeIn) {

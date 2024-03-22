@@ -21,7 +21,7 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <div className={show ? 'header-active' : 'header-hidden'}>
+    <header className={show ? 'header-active' : 'header-hidden'}>
       <div className="header-top">
         <div className="container d-flex d-flex-center">
           <div className="header__logo col-lg-3 col-md-3 col-sm-3 col-3">
@@ -128,6 +128,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
