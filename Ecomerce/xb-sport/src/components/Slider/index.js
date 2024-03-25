@@ -1,20 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
 
 const sliderImages = require.context('../../assets/images/sliders', true);
 
 export default function Slider({ data }) {
   const [slide, setSlide] = useState(0);
+  const updateDimensions = () => {
+    // this.setState({ width: window.innerWidth, height: window.innerHeight });
+  };
+
   const nextSlide = () => {
-    setSlide(slide + 1 === data.length ? 0 : slide + 1);
+    setSlide((prevSlide) => (prevSlide + 1) % data.length);
   };
 
   const prevSlide = () => {
-    setSlide(slide - 1 < 0 ? data.length - 1 : slide - 1);
+    setSlide((prevSlide) => (prevSlide - 1) % data.length);
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 3000);
+    window.addEventListener('resize', updateDimensions);
+    return () => {
+      clearInterval(intervalId);
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, []);
+
   return (
-    <div className="slider-container">
-      <div onClick={prevSlide} className="arrow arrow-left">
+    <div className="slider-container">*
++
+
+3'[=]      <div onClick={prevSlide} className="arrow arrow-left">
         <i class="fa-solid fa-arrow-left"></i>
       </div>
       {data.map((item, index) => {
