@@ -24,12 +24,12 @@ export default function Header() {
     <header className={show ? 'header-active' : 'header-hidden'}>
       <div className="header-top">
         <div className="container d-flex d-flex-center">
-          <div className="header__logo col-lg-3 col-md-3 col-sm-3 col-3">
+          <div className="header__logo col-3">
             <a href="/">
               <img src={require('../../assets/images/header-logo.png')} alt="logo" />
             </a>
           </div>
-          <div className="header__search col-lg-4 col-md-6 col-sm-7 col-7">
+          <div className="header__search col-4 col-xl-5 col-lg-6 col-md-7">
             <form className="search" action="/search">
               <input className="search__input" type="text" placeholder="Bạn đang tìm gì..." autoComplete="off" />
               <button className="search__btn" type="submit">
@@ -38,9 +38,9 @@ export default function Header() {
             </form>
             <div className="search-results"></div>
           </div>
-          <ul className="header__topnav col-lg-5 col-md-3 col-sm-2 col-2">
+          <ul className="header__topnav col-5 col-xl-4 col-lg-3 col-md-2">
             <li className="topnav__item"></li>
-            <li className="topnav__item hidden-lg">
+            <li className="topnav__item hidden-xl">
               <a className="icon-text-box" href="tel:0964 953 286">
                 <i class="fa-solid fa-phone-volume icon-box" />
                 <div className="text-box">

@@ -2,16 +2,16 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__top">
-        <div className="container register row">
-          <span className="register__title col-md-4 col-12">ĐĂNG KÝ NHẬN TIN</span>
-          <form className="register__form col-md-5 col-11">
+        <div className="register container">
+          <span className="register__title col-3 col-lg-12 col-md-12">ĐĂNG KÝ NHẬN TIN</span>
+          <form className="register__form col-5 col-lg-8 col-md-12">
             <input type="email" placeholder="Email" />
             <button>
               <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
               ĐĂNG KÝ
             </button>
           </form>
-          <div className="register__social col-md-3 col-12">
+          <div className="register__social col-4 col-lg-4 col-md-12">
             <a href="/">
               <i class="fa-brands fa-tiktok"></i>
             </a>
@@ -28,8 +28,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer__mid">
-        <div className="container row">
-          <div className="item-info col-lg-3 col-md-6 col-12">
+        <div className="container d-flex">
+          <div className="item-info col-3  col-lg-6 col-md-12">
             <a className="img-container" href="/">
               <img className="logo" src={require('../../assets/images/header-logo.png')} alt="logo" />
             </a>
@@ -39,7 +39,7 @@ export default function Footer() {
             </p>
             <ul>
               <li>
-                <i class="fa fa-map-marker" aria-hidden="true"></i> XBSports - Hệ thống cửa hàng
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Số cửa hàng: 4
               </li>
               <li>
                 <i class="fa fa-phone" aria-hidden="true"></i>{' '}
@@ -57,7 +57,7 @@ export default function Footer() {
               <li>MST: 0318177707</li>
             </ul>
           </div>
-          <div className="item-info col-lg-3 col-md-6 col-12">
+          <div className="item-info col-3 col-lg-6 col-md-12">
             <div className="item-info__title">CHÍNH SÁCH</div>
             <div className="item-info__body">
               <ul className="list-info">
@@ -85,7 +85,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="item-info col-lg-3 col-md-6 col-12">
+          <div className="item-info col-3 col-lg-6 col-md-12">
             <div className="item-info__title">CHĂM SÓC KHÁCH HÀNG</div>
             <div className="item-info__body">
               <ul className="list-info">
@@ -107,20 +107,10 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="item-info col-lg-3 col-md-6 col-12">
-            <div className="item-info__title">Hỗ trợ</div>
-            <p>Hệ thống cửa hàng:</p>
-            <div className="item-info__body">
-              <ul className="list-info">
-                <li>
-                  <a href="/">XBSports Gò Vấp: 151 Nguyễn Văn Khối, P.11, Q.Gò Vấp, TP. Hồ Chí Minh</a>
-                </li>
-                <li>
-                  <a href="/">XBSports Tân Phú: 2 Thoại Ngọc Hầu, P.Hòa Thạnh, Q.Tân Phú, TP. Hồ Chí Minh</a>
-                </li>
-              </ul>
-            </div>
-            <div className="item-info__title">Phương thức thanh toán</div>
+          <div className="item-info col-3 col-lg-6 col-md-12">
+            <div className="item-info__title">Thời gian mở cửa</div>
+            <p>08:00 - 21:30</p>
+            <div className="item-info__title margin-top-20px">Phương thức thanh toán</div>
             <div className="img-container">
               <img className="item-info__img" src={require('../../assets/images/footer_trustbadge.webp')} alt="" />
             </div>

@@ -114,6 +114,11 @@
     }
 
     .hidden {
+      &-xl {
+        @include mixins.breakpoint(xl) {
+          display: none;
+        }
+      }
       &-lg {
         @include mixins.breakpoint(lg) {
           display: none;
@@ -132,7 +137,7 @@
 
         border-radius: 8px;
         border: 1px solid var(--white-color);
-        @include mixins.breakpoint(xl) {
+        @include mixins.breakpoint(xxl) {
           border: none;
         }
       }
@@ -155,7 +160,7 @@
         margin-left: 10px;
 
         font-size: 1.3rem;
-        @include mixins.breakpoint(xl) {
+        @include mixins.breakpoint(xxl) {
           display: none;
         }
       }

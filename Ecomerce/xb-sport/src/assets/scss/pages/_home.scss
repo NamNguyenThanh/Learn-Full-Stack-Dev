@@ -1,26 +1,28 @@
 @use '../base/mixins';
 .main {
   margin-top: 110px;
-
   @include mixins.breakpoint(lg) {
     margin-top: 70px;
   }
   @include mixins.breakpoint(md) {
     margin-top: 50px;
   }
-
-  width: 100%;
-  height: 100%;
 }
 
 .slider-section {
   width: 100%;
-  height: 350px;
+  height: auto;
+  max-height: 400px;
+  @include mixins.breakpoint(lg) {
+    padding-top: 10px;
+  }
 
   .category {
-    height: 100%;
+    height: auto;
+    max-height: 400px;
     box-shadow: 0px 0px 7px #666;
     overflow-y: auto;
+    background-color: var(--white-color);
 
     @include mixins.breakpoint(lg) {
       display: none;
@@ -61,6 +63,7 @@
 
   .slider-subcategory {
     position: relative;
+    height: 100%;
     padding: 10px 0 0 10px;
     @include mixins.breakpoint(lg) {
       padding: 0px;
@@ -121,5 +124,54 @@
 
   .hidden {
     display: none;
+  }
+}
+
+.level-section {
+  flex-wrap: nowrap;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  background-color: var(--white-color);
+
+  border-radius: 5px;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f0f0f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a2a2a2;
+  }
+}
+
+.categories-section {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  background-color: var(--white-color);
+
+  border-radius: 5px;
+}
+
+.item-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px 8px;
+  img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: auto 400 / 200;
+    border-radius: 5px;
   }
 }

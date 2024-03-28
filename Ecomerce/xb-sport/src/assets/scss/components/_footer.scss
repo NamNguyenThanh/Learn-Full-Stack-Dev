@@ -18,34 +18,38 @@
     background-color: #202121;
     .register {
       @extend %flex-center;
-      padding-bottom: 5px;
+      flex-wrap: wrap;
+      padding-bottom: 10px;
       border-bottom: 1px solid #fff;
       color: #fff;
 
       &__title {
         font-size: 1.8rem;
         font-weight: 400;
-        @include mixins.breakpoint(md) {
-          margin: 5px 0;
+        @include mixins.breakpoint(lg) {
+          margin-top: 8px;
           text-align: center;
         }
       }
       &__form {
+        display: flex;
         height: 45px;
-        @include mixins.breakpoint(md) {
-          margin: 5px 0;
+        @include mixins.breakpoint(lg) {
+          margin-top: 8px;
         }
         > input {
+          flex: 1;
           height: 100%;
-          width: 70%;
           padding: 2px 10px;
+          border-radius: 5px 0 0 5px;
           border: none;
           outline: none;
         }
         > button {
+          // white-space: nowrap;
           height: 100%;
-          width: 30%;
           border: none;
+          border-radius: 0 5px 5px 0;
 
           background-color: #172efd;
           color: #fff;
@@ -58,9 +62,9 @@
       &__social {
         display: flex;
         justify-content: right;
-        @include mixins.breakpoint(md) {
+        @include mixins.breakpoint(lg) {
           justify-content: center;
-          margin: 10px 0;
+          margin-top: 8px;
         }
         > a > i {
           margin-left: 15px;
@@ -156,6 +160,9 @@
       }
       &__img {
         max-width: 100%;
+      }
+      .margin-top-20px {
+        margin-top: 20px;
       }
     }
   }

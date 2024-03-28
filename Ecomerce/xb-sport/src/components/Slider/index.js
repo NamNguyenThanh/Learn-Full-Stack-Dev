@@ -26,10 +26,8 @@ export default function Slider({ data }) {
   }, []);
 
   return (
-    <div className="slider-container">*
-+
-
-3'[=]      <div onClick={prevSlide} className="arrow arrow-left">
+    <div className="slider-container">
+      <div onClick={prevSlide} className="arrow arrow-left">
         <i class="fa-solid fa-arrow-left"></i>
       </div>
       {data.map((item, index) => {

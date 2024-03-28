@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import MainLayout from '../../layouts/MainLayout';
 import Slider from '../../components/Slider';
+import ProductList from '../../components/ProductList';
 const categoryImages = require.context('../../assets/images/categories', true);
+const levelImages = require.context('../../assets/images/level-banner', true);
+const cateBannerImages = require.context('../../assets/images/category-banner', true);
 
 const categories = [
   {
@@ -438,13 +441,367 @@ const slides = [
   },
 ];
 
+const product_groups = [
+  {
+    name: 'VỢT CẦU LÔNG',
+    href: './',
+    childs: [
+      {
+        name: 'Vợt Cầu Lông Yonex',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông Lining',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông VS',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông Kumpoo',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông Vicleo',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông Mizuno',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông Apacs',
+        href: './',
+      },
+      {
+        name: 'Vợt Cầu Lông Prokenex',
+        href: './',
+      },
+    ],
+    products: [
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'GIÀY CẦU LÔNG',
+    href: './',
+    childs: [
+      {
+        name: 'Giày Cầu Lông Yonex',
+        href: './',
+      },
+      {
+        name: 'Giày Cầu Lông Lining',
+        href: './',
+      },
+      {
+        name: 'Giày Cầu Lông Victor',
+        href: './',
+      },
+      {
+        name: 'Giày Cầu Lông Kawasaki',
+        href: './',
+      },
+      {
+        name: 'Giày Cầu Lông Lefus',
+        href: './',
+      },
+      {
+        name: 'Giày Cầu Lông Mizuno',
+        href: './',
+      },
+    ],
+    products: [
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+      {
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        href: './',
+        thumbnail: null,
+        ori_price: '1500000',
+        price: '1040000',
+        discount: '30%',
+        attributes: [
+          {
+            name: 'Màu sắc',
+            values: ['Trắng', 'Đen'],
+          },
+        ],
+      },
+    ],
+  },
+];
 export default function Home() {
   const [subCategories, setSubCategories] = useState({ show: false, data: [] });
   return (
     <MainLayout>
       <main className="main container">
         <section className="slider-section d-flex">
-          <div className="category col-lg-3">
+          <div className="category col-3">
             {categories.map((category, index) => {
               return (
                 <div
@@ -466,7 +823,8 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="slider-subcategory col-lg-9 col-12">
+          <div className="slider-subcategory col-9 col-lg-12">
+            <Slider data={slides} />
             <div
               className={`sub-category-container ${subCategories.show ? 'show' : 'hidden'}`}
               onMouseEnter={() => {
@@ -495,8 +853,51 @@ export default function Home() {
                 })}
               </div>
             </div>
-            <Slider data={slides} />
           </div>
+        </section>
+        <section className="level-section d-flex">
+          <div className="item-banner col-4 col-lg-8">
+            <a href="/">
+              <img src={levelImages(`./beginner__1.webp`)} alt="" />
+            </a>
+          </div>
+          <div className="item-banner col-4 col-lg-8">
+            <a href="/">
+              <img src={levelImages(`./intermediate__1.webp`)} alt="" />
+            </a>
+          </div>
+          <div className="item-banner col-4 col-lg-8">
+            <a href="/">
+              <img src={levelImages(`./advance__1.webp`)} alt="" />
+            </a>
+          </div>
+        </section>
+        <section className="categories-section d-flex">
+          <div className="item-banner col-3 col-lg-6">
+            <a href="/">
+              <img src={cateBannerImages(`./nguoi_moi_choi__1_large.webp`)} alt="" />
+            </a>
+          </div>
+          <div className="item-banner col-3 col-lg-6">
+            <a href="/">
+              <img src={cateBannerImages(`./chuyen_cong_2_large.webp`)} alt="" />
+            </a>
+          </div>
+          <div className="item-banner col-3 col-lg-6">
+            <a href="/">
+              <img src={cateBannerImages(`./cong_thu_toan_dien___1_large.webp`)} alt="" />
+            </a>
+          </div>
+          <div className="item-banner col-3 col-lg-6">
+            <a href="/">
+              <img src={cateBannerImages(`./chuyen_thu_2_large.webp`)} alt="" />
+            </a>
+          </div>
+        </section>
+        <section>
+          {product_groups.map((productGroup, index) => (
+            <ProductList productGroup={productGroup} key={index} />
+          ))}
         </section>
       </main>
     </MainLayout>
