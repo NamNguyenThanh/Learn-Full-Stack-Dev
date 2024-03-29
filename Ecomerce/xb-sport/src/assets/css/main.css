@@ -1710,7 +1710,7 @@ input {
 .product-group > h1 {
   font-size: 20px;
   font-weight: bold;
-  padding-left: 12px;
+  padding-left: 10px;
   border-left: 3px solid;
   cursor: pointer;
 }
@@ -1720,7 +1720,7 @@ input {
 .product-group .product-category {
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 10px;
+  margin: 10px 0;
   width: 100%;
   height: auto;
   overflow-x: auto;
@@ -1762,7 +1762,8 @@ input {
   flex-direction: column;
   height: 100%;
   padding: 16px;
-  box-shadow: 0px 0px 7px #666;
+  border-radius: 2px;
+  box-shadow: 0px 0px 7px #cdcdcd;
   cursor: pointer;
 }
 .product-group .product-card > a {
