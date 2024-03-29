@@ -481,16 +481,24 @@ const product_groups = [
     ],
     products: [
       {
-        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
+        name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung) aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         href: './',
         thumbnail: null,
-        ori_price: '1500000',
-        price: '1040000',
+        ori_price: '1500000000',
+        price: '1040000000',
         discount: '30%',
         attributes: [
           {
             name: 'Màu sắc',
             values: ['Trắng', 'Đen'],
+          },
+          {
+            name: 'Kích thước',
+            values: ['40', '41', '40', '41', '40', '41'],
+          },
+          {
+            name: 'Loại đế',
+            values: ['A', 'B', 'C'],
           },
         ],
       },
@@ -498,8 +506,8 @@ const product_groups = [
         name: 'Vợt Cầu Lông Lining Axforce Cannon (Nội Địa Trung)',
         href: './',
         thumbnail: null,
-        ori_price: '1500000',
-        price: '1040000',
+        ori_price: '1500',
+        price: '1040',
         discount: '30%',
         attributes: [
           {
@@ -837,7 +845,7 @@ export default function Home() {
               <div className="sub-category-body">
                 {subCategories.data.map((subCategory, index) => {
                   return (
-                    <div key={index} className="sub-category-item col-lg-4">
+                    <div key={index} className="sub-category-item col-4">
                       <span className="sub-title">{subCategory.name}</span>
                       <ul>
                         {subCategory.childs.map((child, index) => {

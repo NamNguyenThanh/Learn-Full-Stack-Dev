@@ -1376,6 +1376,90 @@ input {
 .header__services .services__item a:hover {
   color: var(--primary-color);
 }
+.header-category .category {
+  height: auto;
+  max-height: 400px;
+  box-shadow: 0px 0px 7px #666;
+  overflow-y: auto;
+  background-color: var(--white-color);
+  z-index: 100;
+}
+.header-category .category::-webkit-scrollbar {
+  width: 2px;
+}
+.header-category .category::-webkit-scrollbar-track {
+  background: #f0f0f1;
+}
+.header-category .category::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+}
+.header-category .category::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+.header-category .category-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.header-category .category-item .icon {
+  width: 24px;
+  height: 24px;
+}
+.header-category .category-item .title {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #000000;
+}
+.header-category .category-item .title:hover {
+  color: var(--primary-color);
+}
+.header-category .sub-category-container {
+  height: 100%;
+  z-index: 100;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0px 0px 7px #666;
+}
+.header-category .sub-category-container::-webkit-scrollbar {
+  width: 2px;
+}
+.header-category .sub-category-container::-webkit-scrollbar-track {
+  background: #f0f0f1;
+}
+.header-category .sub-category-container::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+}
+.header-category .sub-category-container::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+.header-category .sub-category-body {
+  display: flex;
+  flex-wrap: wrap;
+  height: 0px;
+}
+.header-category .sub-category-item .sub-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.header-category .sub-category-item .sub-title:hover {
+  color: var(--primary-color);
+}
+.header-category .sub-category-item .subsub-title:hover {
+  color: var(--primary-color);
+}
+
+.show-category,
+.show-subcategory {
+  display: flex;
+}
+
+.hide-category,
+.hide-subcategory {
+  display: none;
+}
 
 .header-active {
   position: fixed;
@@ -1658,6 +1742,7 @@ input {
 .slide {
   width: 100%;
   height: 100%;
+  max-height: 350px;
   border-radius: 5px;
   box-shadow: 0px 0px 7px #666;
 }
@@ -1757,6 +1842,12 @@ input {
 .product-group .attr_item {
   font-size: 1.2rem;
 }
+.product-group .attr_item::after {
+  content: ", ";
+}
+.product-group .attr_item:last-child::after {
+  content: "";
+}
 .product-group .product-card {
   display: flex;
   flex-direction: column;
@@ -1774,16 +1865,53 @@ input {
   width: 100%;
   object-fit: contain;
 }
+.product-group .product-card__title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.product-group .product-card__attr {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .product-group .product-card__price {
   display: flex;
+  flex-wrap: wrap;
 }
 .product-group .product-card__price > .price {
+  display: flex;
   color: red;
 }
+.product-group .product-card__price > .price::after {
+  content: "";
+  display: block;
+  width: 10px;
+}
 .product-group .product-card__price > .ori_price {
-  margin-left: 5px;
   text-decoration: line-through;
   color: #666;
+}
+.product-group .see-all-container {
+  width: 100%;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+.product-group .see-all-container > .btn-see-all {
+  border-radius: 5px;
+  padding: 12px 50px;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: 1px transparent solid;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+.product-group .see-all-container > .btn-see-all:hover {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .main {
@@ -1914,6 +2042,7 @@ input {
   width: 100%;
   height: auto;
   margin-top: 10px;
+  padding: 0 0 8px 8px;
   background-color: var(--white-color);
   border-radius: 5px;
   overflow-x: auto;
@@ -1935,6 +2064,7 @@ input {
   width: 100%;
   height: auto;
   margin-top: 10px;
+  padding: 0 0 8px 8px;
   background-color: var(--white-color);
   border-radius: 5px;
 }
@@ -1944,7 +2074,7 @@ input {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 16px 8px;
+  padding: 8px 8px 0 0;
 }
 .item-banner img {
   display: block;
