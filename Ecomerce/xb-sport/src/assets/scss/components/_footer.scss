@@ -11,6 +11,7 @@
   }
   &__top {
     @extend %flex-center;
+    margin-top: 10px;
 
     min-height: 72px;
     width: 100%;

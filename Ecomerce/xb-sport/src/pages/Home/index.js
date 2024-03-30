@@ -805,8 +805,12 @@ const product_groups = [
 ];
 export default function Home() {
   const [subCategories, setSubCategories] = useState({ show: false, data: [] });
+  const [mobileTab, setMobileTab] = useState(1);
+  function changeMobileTab(activeTab) {
+    setMobileTab(activeTab);
+  }
   return (
-    <MainLayout>
+    <MainLayout mobileTab={mobileTab} changeMobileTab={changeMobileTab}>
       <main className="main container">
         <section className="slider-section d-flex">
           <div className="category col-3">

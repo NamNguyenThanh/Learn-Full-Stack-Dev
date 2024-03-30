@@ -26,20 +26,19 @@
     height: 100%;
 
     &__item {
-      display: flex;
-      justify-content: center;
-
       text-align: center;
       font-size: 1.2rem;
-
-      a {
-        text-decoration: none;
-      }
 
       img {
         width: 24px;
         height: 24px;
         aspect-ratio: auto 24/24;
+      }
+      .active {
+        color: #c02533;
+      }
+      .normal {
+        color: #000;
       }
     }
   }
