@@ -2,10 +2,11 @@
 const express = require('express');
 const { asyncHandler } = require('../../helpers/async_handler');
 const shopController = require('../../controllers/shop.controller');
-const { authentication } = require('../../auth/auth_utils');
+const { authentication, apiKey, permission } = require('../../auth/auth_utils');
 
 const router = express.Router();
-
+router.use(asyncHandler(apiKey));
+router.use(permission('access-shop'));
 router.post('/signup', asyncHandler(shopController.signUp));
 router.post('/login', asyncHandler(shopController.login));
 
