@@ -1,0 +1,133 @@
+.product-group {
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--white-color);
+  > h1 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    border-left: 3px solid;
+    cursor: pointer;
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+  .product-category {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f0f0f1;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #a2a2a2;
+    }
+    .item_category {
+      margin-right: 10px;
+      margin-bottom: 5px;
+      button {
+        padding: 10px;
+        white-space: nowrap;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        font-family: inherit;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--primary-color);
+          color: var(--white-color);
+        }
+      }
+    }
+  }
+  .attr_item {
+    font-size: 1.2rem;
+    &::after {
+      content: ', ';
+    }
+    &:last-child::after {
+      content: '';
+    }
+  }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 16px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 7px #cdcdcd;
+    cursor: pointer;
+
+    > a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    &__thumb {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &__title {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    &__attr {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    &__price {
+      display: flex;
+      flex-wrap: wrap;
+      > .price {
+        display: flex;
+        color: red;
+        &::after {
+          content: '';
+          display: block;
+          width: 10px;
+        }
+      }
+      > .ori_price {
+        text-decoration: line-through;
+        color: #666;
+      }
+    }
+  }
+  .see-all-container {
+    width: 100%;
+    margin: 10px 0 0 0;
+    text-align: center;
+    > .btn-see-all {
+      border-radius: 5px;
+      padding: 12px 50px;
+      font-family: inherit;
+      font-size: 1.4rem;
+      border: 1px transparent solid;
+      background-color: var(--primary-color);
+      color: var(--white-color);
+
+      &:hover {
+        background-color: var(--white-color);
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+      }
+    }
+  }
+}
