@@ -33,6 +33,7 @@ const catUpload = upload.fields([
   { name: 'icon', maxCount: 1 },
   { name: 'thumbnail', maxCount: 1 },
 ]);
+router.get('/', asyncHandler(CategoryController.getAllCategory));
 router.post('/create', catUpload, asyncHandler(CategoryController.create));
 
 module.exports = router;

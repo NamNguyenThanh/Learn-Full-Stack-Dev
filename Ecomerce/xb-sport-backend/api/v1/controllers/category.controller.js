@@ -14,6 +14,13 @@ class CategoryController {
       }),
     }).send(res);
   };
+
+  getAllCategory = async (req, res) => {
+    new OK({
+      message: 'All categories',
+      metadata: await CategoryService.getAllCategory(),
+    }).send(res);
+  }
 }
 
 module.exports = new CategoryController();

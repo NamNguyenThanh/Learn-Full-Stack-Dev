@@ -28,6 +28,11 @@ class CategoryService {
     });
     return newCategory;
   };
+
+  static getAllCategory = async () => {
+    const categories = await CategoryModel.find().sort({ path: 1, name: 1 });
+    return { categories };
+  };
 }
 
 module.exports = CategoryService;
