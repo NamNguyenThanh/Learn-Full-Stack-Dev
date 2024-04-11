@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const cors = require('cors');
 const compression = require('compression');
 const { ReasonPhrases, StatusCodes } = require('./api/v1/utils/httpStatusCode/httpStatusCode');
 const app = express();
@@ -9,8 +10,10 @@ const app = express();
 // Init middleware
 app.use(morgan('dev'));
 app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(compression());
 app.use(express.json());
+app.use(cors());
 app.use(
   express.urlencoded({
     extended: true,

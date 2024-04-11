@@ -5,9 +5,11 @@ const { CREATED, OK } = require('../core/success.response');
 
 class CategoryController {
   create = async (req, res) => {
+    var host = req.protocol + '://' + req.get('host');
     new CREATED({
       message: 'New category has been created',
       metadata: await CategoryService.create({
+        host,
         icon: req.files['icon'] ? req.files['icon'][0] : null,
         thumbnail: req.files['thumbnail'] ? req.files['thumbnail'][0] : null,
         ...req.body,
@@ -20,7 +22,7 @@ class CategoryController {
       message: 'All categories',
       metadata: await CategoryService.getAllCategory(),
     }).send(res);
-  }
+  };
 }
 
 module.exports = new CategoryController();
