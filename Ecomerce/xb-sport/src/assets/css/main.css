@@ -1417,6 +1417,7 @@ input {
 }
 .header-category .sub-category-container {
   height: 100%;
+  width: 100%;
   z-index: 100;
   padding: 10px;
   overflow-y: auto;
@@ -2027,6 +2028,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   height: 0px;
+  width: 100%;
 }
 .slider-section .sub-category-item .sub-title {
   font-size: 15px;

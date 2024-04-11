@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function NavbarMobile({ mobileTab, changeMobileTab }) {
   return (
-    <div class="navbar-mobile">
+    <div className="navbar-mobile">
       <ul className="navbar">
         <li
           className="navbar__item col-3"
@@ -15,7 +15,7 @@ export default function NavbarMobile({ mobileTab, changeMobileTab }) {
           ) : (
             <img src={require('../../assets/images/navbar/home.webp')} alt="" />
           )}
-          <div class={`${mobileTab === 1 ? 'active' : 'normal'}`}>Trang Chủ</div>
+          <div className={`${mobileTab === 1 ? 'active' : 'normal'}`}>Trang Chủ</div>
         </li>
         <li
           className="navbar__item col-3"
@@ -28,7 +28,7 @@ export default function NavbarMobile({ mobileTab, changeMobileTab }) {
           ) : (
             <img src={require('../../assets/images/navbar/category.webp')} alt="" />
           )}
-          <div class={`${mobileTab === 2 ? 'active' : 'normal'}`}>Danh Mục</div>
+          <div className={`${mobileTab === 2 ? 'active' : 'normal'}`}>Danh Mục</div>
         </li>
         <li
           className="navbar__item col-3"
@@ -41,7 +41,7 @@ export default function NavbarMobile({ mobileTab, changeMobileTab }) {
           ) : (
             <img src={require('../../assets/images/navbar/location.webp')} alt="" />
           )}
-          <div class={`${mobileTab === 3 ? 'active' : 'normal'}`}>Cửa Hàng</div>
+          <div className={`${mobileTab === 3 ? 'active' : 'normal'}`}>Cửa Hàng</div>
         </li>
         <li
           className="navbar__item col-3"
@@ -54,7 +54,7 @@ export default function NavbarMobile({ mobileTab, changeMobileTab }) {
           ) : (
             <img src={require('../../assets/images/navbar/phone-call.webp')} alt="" />
           )}
-          <div class={`${mobileTab === 4 ? 'active' : 'normal'}`}>Hotline</div>
+          <div className={`${mobileTab === 4 ? 'active' : 'normal'}`}>Hotline</div>
         </li>
       </ul>
     </div>
