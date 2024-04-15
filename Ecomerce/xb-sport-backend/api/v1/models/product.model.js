@@ -26,12 +26,19 @@ const productSchema = new Schema(
     attrs: [{ type: Schema.Types.ObjectId, ref: 'Attribute' }],
     variations: [
       {
-        attrs: [{ type: Schema.Types.ObjectId, ref: 'Attribute' }],
+        options: [
+          {
+            attr_id: { type: Schema.Types.ObjectId, ref: 'Attribute' },
+            value_idx: Number,
+          },
+        ],
+        sku: String,
         image: String,
         price: Number,
         quantity: Number,
       },
     ],
+    isDeleted: { type: Boolean, default: false },
   },
   {
     collection: COLLECTION_NAME,

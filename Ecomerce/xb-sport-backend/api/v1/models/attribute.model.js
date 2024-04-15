@@ -7,8 +7,13 @@ const attributeSchema = new Schema(
   {
     name: String, // Tên phân biệt trong db (racket-size != shoes-size)
     title: String, // Tên hiển thị (kích thước - hiện thị chung cho racket và shoes)
-    values: [String],
-    show: Boolean, // Có thể nhìn thấy trên trang sản phẩm hay không?
+    values: [
+      {
+        name: String,
+        icon: String,
+      },
+    ],
+    show: Boolean, // Có thể nhìn thấy trên trang chi tiết sản phẩm hay không?
     variation: Boolean, // Có thể tạo biến thể từ thuộc tính này hay không
   },
   {
