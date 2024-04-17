@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import * as CategoryAPI from '../../apis/category.api';
-import MainLayout from '../../layouts/MainLayout';
-import Slider from '../../components/Slider';
-import ProductList from '../../components/ProductList';
-const levelImages = require.context('../../assets/images/level-banner', true);
-const cateBannerImages = require.context('../../assets/images/category-banner', true);
+import * as CategoryAPI from '../../../apis/category.api';
+import MainLayout from '../../../layouts/MainLayout';
+import Slider from '../../../components/Slider';
+import ProductList from '../../../components/ProductList';
+const levelImages = require.context('../../../assets/images/level-banner', true);
+const cateBannerImages = require.context('../../../assets/images/category-banner', true);
 
 const slides = [
   {
@@ -380,7 +380,7 @@ const product_groups = [
     ],
   },
 ];
-export default function Home() {
+export default function UserHome() {
   const [categories, setCategories] = useState([]);
   const [activeSubCat, setActiveSubCat] = useState({ show: false, parent: null });
   const [mobileTab, setMobileTab] = useState(1);

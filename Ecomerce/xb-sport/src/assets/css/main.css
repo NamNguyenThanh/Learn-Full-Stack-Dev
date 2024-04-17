@@ -2094,6 +2094,145 @@ input {
   border-radius: 5px;
 }
 
+.admin-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+.admin-container .nav-container {
+  position: relative;
+  padding: 20px;
+  background-color: #15161b;
+  color: white;
+  font-size: 1.5rem;
+}
+.admin-container .nav-container .nav-item {
+  display: flex;
+  align-items: center;
+  background-color: #202326;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 20px;
+  margin-top: 5px;
+}
+.admin-container .nav-container .nav-item i:first-child {
+  margin-right: 10px;
+}
+.admin-container .nav-container .nav-item .drop-down {
+  flex: 1;
+  text-align: right;
+}
+.admin-container .nav-container .nav-subitem {
+  padding-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #979797;
+  background-color: #3a3d40;
+  cursor: pointer;
+}
+.admin-container .nav-container .nav-subitem:hover {
+  background-color: #b5b5b5;
+  color: black;
+}
+.admin-container .nav-container .nav-subitem:last-child {
+  border-bottom: 0px;
+  border-radius: 0 0 5px 5px;
+}
+.admin-container .nav-container .general-group .general-block {
+  margin-top: 10px;
+}
+.admin-container .nav-container .account-group {
+  margin-top: 20px;
+}
+.admin-container .nav-container .logout {
+  position: absolute;
+  bottom: 20px;
+}
+.admin-container .nav-container .logout i {
+  margin-right: 10px;
+}
+.admin-container .nav-container .active {
+  background-color: #b5b5b5;
+  color: black;
+}
+.admin-container .main-container {
+  height: 100vh;
+  overflow-y: auto;
+}
+.admin-container .main-container .hidden {
+  display: none;
+}
+.admin-container .main-container .table-categories {
+  width: 90%;
+  margin: 10px auto;
+}
+.admin-container .main-container .table-categories .header-row {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 10px 0;
+  background-color: rgb(209, 209, 209);
+  border-radius: 10px 10px 0 0;
+}
+.admin-container .main-container .table-categories .body-row {
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
+  background-color: rgb(236, 236, 236);
+}
+.admin-container .main-container .table-categories .body-row:last-child {
+  border-radius: 0 0 10px 10px;
+}
+.admin-container .main-container .table-categories .body-row > li:nth-last-child(1) {
+  text-align: center;
+}
+.admin-container .main-container .table-categories .body-row > li:nth-last-child(2) {
+  text-align: center;
+}
+.admin-container .main-container .table-categories .body-row > li:nth-last-child(3) {
+  text-align: center;
+}
+.admin-container .main-container .table-categories .body-row .button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent {
+  background-color: rgb(209, 209, 209);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent .dropdown-categories {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 200px;
+  overflow-x: auto;
+  z-index: 1000;
+  background-color: white;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent .dropdown-categories::-webkit-scrollbar {
+  width: 5px;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent .dropdown-categories::-webkit-scrollbar-track {
+  background: #f0f0f1;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent .dropdown-categories::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent .dropdown-categories::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+.admin-container .main-container .table-categories .body-row .onEditParent .dropdown-categories .dropdown-item {
+  padding: 5px;
+  border-bottom: 1px solid rgb(233, 233, 233);
+  cursor: pointer;
+}
+
 html {
   --primary-color: #172efd;
   --white-color: #fff;

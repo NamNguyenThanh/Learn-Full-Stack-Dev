@@ -1,4 +1,4 @@
-@use '../base/mixins';
+@use '../../base/mixins';
 .main {
   margin-top: 110px;
   @include mixins.breakpoint(lg) {
