@@ -31,7 +31,7 @@ class CategoryService {
   };
 
   static getAllCategory = async () => {
-    const categories = await CategoryModel.find().sort({ parent_path: 1, name: 1 });
+    const categories = await CategoryModel.find().sort({ path: 1, name: 1 });
     return { categories };
   };
 }

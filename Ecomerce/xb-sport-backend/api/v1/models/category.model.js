@@ -17,6 +17,6 @@ const categorySchema = new Schema(
   },
 );
 
-categorySchema.index({ path: 1 });
+categorySchema.index({ name: 1, path: 1 });
 
 module.exports = model(DOCUMENT_NAME, categorySchema);
