@@ -14,18 +14,27 @@ export default function Categories() {
   const thumbnailRefs = useRef([]);
 
   useEffect(() => {
-    const fetchApi = async () => {
-      let res = await CategoryAPI.getAllCategories();
-      if (res && res.status === 200) {
-        setCategories(res.metadata.categories);
-        backupCategories.current = JSON.parse(JSON.stringify(res.metadata.categories));
-        iconRefs.current = iconRefs.current.slice(0, res.metadata.categories.length);
-        thumbnailRefs.current = thumbnailRefs.current.slice(0, res.metadata.categories.length);
-        setEditing(Array(res.metadata.categories.length).fill(false));
-      }
-    };
-    fetchApi();
+    getAllCategories();
   }, []);
+
+  const getAllCategories = async () => {
+    let res = await CategoryAPI.getAllCategories();
+    if (res && res.status === 200) {
+      setCategories(res.metadata.categories);
+      backupCategories.current = JSON.parse(JSON.stringify(res.metadata.categories));
+      iconRefs.current = iconRefs.current.slice(0, res.metadata.categories.length);
+      thumbnailRefs.current = thumbnailRefs.current.slice(0, res.metadata.categories.length);
+      setEditing(Array(res.metadata.categories.length).fill(false));
+    }
+  };
+
+  const addNewCategory = async () => {
+    let res = await CategoryAPI.addNewCategory(newCategory);
+    if (res && res.status === 201) {
+      setNewCategory({});
+      await getAllCategories();
+    }
+  };
 
   return (
     <div className="table-categories">
@@ -36,7 +45,7 @@ export default function Categories() {
         <li className="col">Thumbnail</li>
         <li className="col">Hành Động</li>
       </ul>
-      <ul className="row row-cols-5 body-row">
+      <ul className="row row-cols-5 body-row add-row">
         <li className="col">
           <input
             className="input-addcategory"
@@ -58,11 +67,18 @@ export default function Categories() {
         >
           <div className="onEditParent">
             <div style={{ flex: 1 }}>
-              {newCategory.path ? newCategory.path.substring(1, newCategory.path.length - 1).replace(',', ' / ') : '-'}
+              {newCategory.path
+                ? newCategory.path.substring(1, newCategory.path.length - 1).replaceAll(',', ' / ')
+                : '-'}
             </div>
             {showAddParent ? <i class="fa-solid fa-chevron-up"></i> : <i class="fa-solid fa-chevron-down"></i>}
             <div className={`dropdown-categories ${showAddParent ? '' : 'hidden'}`}>
-              {[...new Set(backupCategories.current.map((cat) => cat.path))].map((pth, idx) => {
+              {[
+                null,
+                ...new Set(
+                  backupCategories.current.map((cat) => (cat.path ? cat.path + cat.name + ',' : ',' + cat.name + ',')),
+                ),
+              ].map((pth, idx) => {
                 return (
                   <div
                     className="dropdown-item"
@@ -73,7 +89,7 @@ export default function Categories() {
                       });
                     }}
                   >
-                    {pth ? pth.substring(1, pth.length - 1).replace(',', ' / ') : '-'}
+                    {pth ? pth.substring(1, pth.length - 1).replaceAll(',', ' / ') : '-'}
                   </div>
                 );
               })}
@@ -141,16 +157,21 @@ export default function Categories() {
           )}
         </li>
         <li className="col">
-          <button className="button button-edit" onClick={() => {}}>
+          <button
+            className="button button-edit"
+            onClick={() => {
+              addNewCategory(newCategory);
+            }}
+          >
             THÊM MỚI
           </button>
         </li>
       </ul>
-      <ul className={`row row-cols-1 body-row ${!categories.length ? '' : 'hidden'}`}>
+      <ul className={`row row-cols-1 body-row empty-row ${!categories.length ? '' : 'hidden'}`}>
         Danh mục sản phẩm rỗng. Vui lòng thêm danh mục sản phẩm mới!
       </ul>
       {categories.map((category, index) => {
-        let parent = category.path ? category.path.substring(1, category.path.length - 1).replace(',', ' / ') : '-';
+        let parent = category.path ? category.path.substring(1, category.path.length - 1).replaceAll(',', ' / ') : '-';
         return (
           <ul className="row row-cols-5 body-row" key={index}>
             <li className="col">
@@ -197,7 +218,7 @@ export default function Categories() {
                           });
                         }}
                       >
-                        {pth ? pth.substring(1, pth.length - 1).replace(',', ' / ') : '-'}
+                        {pth ? pth.substring(1, pth.length - 1).replaceAll(',', ' / ') : '-'}
                       </div>
                     );
                   })}
@@ -296,7 +317,7 @@ export default function Categories() {
                   setShowCategory(null);
                 }}
               >
-                {editing[index] ? 'CẬP NHẬT' : 'CHỈNH SỬA'}
+                {editing[index] ? 'LƯU' : 'SỬA'}
               </button>
 
               <button

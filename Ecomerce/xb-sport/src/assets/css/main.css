@@ -2019,7 +2019,7 @@ input {
   background-color: white;
 }
 .table-categories .body-row .onEditParent .dropdown-categories::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 .table-categories .body-row .onEditParent .dropdown-categories::-webkit-scrollbar-track {
   background: #f0f0f1;
@@ -2060,6 +2060,14 @@ input {
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid transparent;
+}
+.table-categories .add-row {
+  background-color: rgb(167, 167, 255);
+}
+.table-categories .empty-row {
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .main {

@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
+const path = require('path');
 const compression = require('compression');
 const { ReasonPhrases, StatusCodes } = require('./api/v1/utils/httpStatusCode/httpStatusCode');
 const app = express();
