@@ -36,6 +36,16 @@ export default function Categories() {
     }
   };
 
+  const handleRemove = async (id) => {
+    const shouldRemove = window.confirm('Are you sure you want to delete?');
+    if (shouldRemove) {
+      let res = await CategoryAPI.deleteCategory(id);
+      if (res && res.status === 200) {
+        await getAllCategories();
+      }
+    }
+  };
+
   return (
     <div className="table-categories">
       <ul className="row row-cols-5 header-row">
@@ -324,6 +334,7 @@ export default function Categories() {
                 className="button button-delete"
                 onClick={() => {
                   setShowCategory(null);
+                  handleRemove(category._id);
                 }}
               >
                 XÓA

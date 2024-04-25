@@ -22,5 +22,14 @@ export const addNewCategory = async (data) => {
     return res.data;
   } catch (error) {
     console.log(error);
+  } 
+};
+
+export const deleteCategory = async (id) => {
+  try {
+    const res = await request.delete(`/category/delete/${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
 };
