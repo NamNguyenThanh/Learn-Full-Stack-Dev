@@ -1,9 +1,9 @@
 'use strict';
 
-const pth = require('path');
-const url = require('url');
+const path = require('path');
+const fs = require('fs');
 const CategoryModel = require('../models/category.model');
-const { BadRequestError } = require('../core/error.response');
+const { BadRequestError, InternalServerError } = require('../core/error.response');
 
 class CategoryService {
   static create = async ({ host, name, path, thumbnail, icon }) => {
@@ -39,6 +39,35 @@ class CategoryService {
   static getAllCategory = async () => {
     const categories = await CategoryModel.find().sort({ path: 1, name: 1 });
     return { categories };
+  };
+
+  static delete = async (id) => {
+    const category = await CategoryModel.findOneAndDelete({ _id: id });
+    if (category) {
+      if (category.thumbnail) {
+        // Delete thumbnail
+        const thumbnail_path = path.join(
+          __dirname,
+          '..',
+          category.thumbnail.slice(category.thumbnail.indexOf('public')),
+        );
+        fs.unlink(thumbnail_path, (err) => {
+          if (err) throw InternalServerError(`Error deleting file: ${err}`);
+        });
+      }
+      if (category.icon) {
+        // Delete icon
+        const icon_path = path.join(__dirname, '..', category.icon.slice(category.icon.indexOf('public')));
+        fs.unlink(icon_path, (err) => {
+          if (err) throw InternalServerError(`Error deleting file: ${err}`);
+        });
+      }
+      return {
+        category,
+      };
+    } else {
+      throw new BadRequestError('Not found category');
+    }
   };
 }
 

@@ -10,7 +10,8 @@ const storage = multer.diskStorage({
     cb(null, pth);
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    const unique = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, unique + '-' + file.originalname);
   },
 });
 const upload = multer({
@@ -27,5 +28,6 @@ const catUpload = upload.fields([
 ]);
 router.get('/', asyncHandler(CategoryController.getAllCategory));
 router.post('/create', catUpload, asyncHandler(CategoryController.create));
+router.delete('/delete/:id', asyncHandler(CategoryController.delete));
 
 module.exports = router;

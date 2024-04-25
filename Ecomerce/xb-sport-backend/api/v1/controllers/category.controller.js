@@ -17,6 +17,13 @@ class CategoryController {
     }).send(res);
   };
 
+  delete = async (req, res) => {
+    new OK({
+      message: `Category ${req.params.id} has been deleted`,
+      metadata: await CategoryService.delete(req.params.id),
+    }).send(res);
+  };
+
   getAllCategory = async (req, res) => {
     new OK({
       message: 'All categories',
